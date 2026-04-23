@@ -21,6 +21,22 @@ This repository keeps the setup minimal and focused:
 - A custom build pipeline that emits both server and client artifacts.
 - Tauri sidecar process management (spawn/cleanup) in Rust.
 
+## Prerequisites
+
+- Node.js 20+ (recommended for modern Next.js tooling)
+- Bun (as declared in `packageManager`)
+- Rust toolchain
+
+## Get Started
+
+Clone this repository, and just like how you usually develop Tauri:
+
+```sh
+bun install
+bun tauri dev
+bun tauri build
+```
+
 ## How It Works
 
 ### Dev Mode
@@ -34,58 +50,18 @@ This repository keeps the setup minimal and focused:
 The build script (`bun run build`) performs two passes:
 
 1. **Server pass**
-   - Builds Next.js in standalone mode.
-   - Copies `.next/standalone` to `dist/server`.
    - Compiles a sidecar binary named `next-*` for multiple targets.
 2. **Client pass**
    - Exports static assets (`next export`) to `dist/client`.
 
-> In production, Rust starts sidecar `next` with `PORT=1420` and kills it when the app window closes.
-
-## Prerequisites
-
-- Node.js 20+ (recommended for modern Next.js tooling)
-- Bun (as declared in `packageManager`)
-- Rust toolchain
-- Tauri prerequisites for your OS
-
-References:
-
-- [Tauri Prerequisites](https://v2.tauri.app/start/prerequisites/)
-- [Bun Installation](https://bun.sh/docs/installation)
-
-## Getting Started
-
-Install dependencies:
-
-```bash
-pnpm install
-```
-
-Run in development:
-
-```bash
-pnpm tauri dev
-```
-
-This starts Next.js on port `1420` and opens the Tauri desktop app.
-
-## Build
-
-Create a production build:
-
-```bash
-pnpm tauri build
-```
-
-The Tauri build process will run the custom Next.js build pipeline first (`bun run build`), then package the app.
+In production, Rust starts sidecar `next` with `PORT=1420` and kills it when the app window closes.
 
 ## Useful Scripts
 
-- `pnpm dev`: Start Next.js dev server on `:1420`
-- `pnpm build`: Build server/client artifacts for sidecar workflow
-- `pnpm lint`: Run Next.js lint
-- `pnpm tauri`: Run Tauri CLI commands
+- `bun dev`: Start Next.js dev server on `:1420`
+- `bun build`: Build server/client artifacts for sidecar workflow
+- `bun lint`: Run Next.js lint
+- `bun tauri`: Run Tauri CLI commands
 
 ## Demo API Route
 
@@ -95,7 +71,6 @@ The sample route:
 
 The UI includes a simple query/refetch example using React Query.
 
-## Notes
+## License
 
-- Folder name `iamge/` is intentionally kept as-is in this repository.
-- If you customize API routes or rendering behavior, verify both server and client build passes still succeed.
+[MIT](./LICENSE) License © [Hairyf](https://github.com/hairyf)
