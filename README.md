@@ -1,4 +1,4 @@
-# tauri-next-sidecar
+# Next JS API routes with Tauri
 
 Minimum Use Case for Supporting Next.js (SSR) on Tauri through a Sidecar.
 
@@ -8,11 +8,9 @@ This project demonstrates a practical setup where:
 - Production mode starts a bundled Next.js server binary as a Tauri sidecar.
 - Client assets are exported separately and served by Tauri.
 
-## Screenshot
-
 ![App Preview](./iamge/preview.png)
 
-## Why This Repo Exists
+---
 
 Running Next.js SSR inside a Tauri app is possible, but it needs a clear build/runtime split.
 This repository keeps the setup minimal and focused:
