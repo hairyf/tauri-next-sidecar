@@ -1,0 +1,41 @@
+{
+  "name": "tauri-next-sidecar",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 1420",
+    "build": "bun run scripts/build.ts",
+    "lint": "next lint",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@hairy/react-lib": "^1.51.0",
+    "@tanstack/react-query": "^5.99.2",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-http": "~2",
+    "@tauri-apps/plugin-opener": "^2",
+    "@tauri-apps/plugin-shell": "~2",
+    "next": "^16.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "patchedDependencies": {
+    "next-bun-compile@0.6.1": "patches/next-bun-compile@0.6.1.patch"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@tauri-apps/cli": "^2",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "25",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "fs-extra": "^11.3.4",
+    "glob": "^13.0.6",
+    "next-bun-compile": "^0.6.1",
+    "tailwindcss": "^4.2.4",
+    "tinyexec": "^1.1.1",
+    "typescript": "~5.8.3"
+  },
+  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
+}
