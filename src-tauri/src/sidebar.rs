@@ -15,7 +15,7 @@ pub(crate) fn setup(app_handle: tauri::AppHandle) {
             .shell()
             .sidecar("next")
             .unwrap()
-            .env("PORT", "5544");
+            .env("PORT", "1420");
         let (rx, child) = next.spawn().expect("Failed to spawn next sidecar");
         app_handle.manage(SidecarProcess(std::sync::Mutex::new(Some(child))));
         return;
